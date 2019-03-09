@@ -1,0 +1,2 @@
+# GlossParser
+Parses linear gloss
