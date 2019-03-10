@@ -59,11 +59,21 @@ class Parser
          string[] labels = part.Split('.');
          if (gloss)
          {
-            morphemes.Add(new Morpheme("", labels[0], labels.Skip(1).ToArray()));
+            morphemes.Add(new Morpheme
+            {
+               Original = "",
+               Gloss    = labels[0],
+               Labels   = labels.Skip(1).ToArray()
+            });
          }
          else
          {
-            morphemes.Add(new Morpheme(labels[0], "", new string[] {}));
+            morphemes.Add(new Morpheme
+            {
+               Original = labels[0],
+               Gloss    = "",
+               Labels   = new string[] {}
+            });
          }
       }
 

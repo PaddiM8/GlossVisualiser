@@ -13,18 +13,20 @@ class Lexer
          {
             if (input[c+w] == ' ')
             {
-               tokens.Add(new Token(
-                        GetTokenType(input[c]),
-                        input.Substring(c, w)));
+               tokens.Add(new Token {
+                  TokenType = GetTokenType(input[c]),
+                  Value     = input.Substring(c, w)
+               });
 
                c = c + w;
                break;
             } 
             else if (c+w == input.Length - 1)
             {
-               tokens.Add(new Token(
-                        GetTokenType(input[c]),
-                        input.Substring(c, w + 1)));
+               tokens.Add(new Token {
+                  TokenType = GetTokenType(input[c]),
+                  Value     = input.Substring(c, w + 1)
+               });
 
                c = input.Length - 1;
                break;

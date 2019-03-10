@@ -5,7 +5,7 @@ class Sentence
 {
    public List<Word> Words { get; set; }
 
-   public Sentence(List<Word> words)
+   public Sentence(List<Word> words) 
    {
       this.Words = words;
    }
