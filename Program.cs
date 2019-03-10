@@ -4,10 +4,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.IO;
 using System.Reflection;
+using System.Linq;
 
 class Program
 {
-   private static OutputTypes OutputType = OutputTypes.Json;
+   private static OutputTypes OutputType = OutputTypes.HtmlFull;
    private static string[] InputFiles { get; set; }
    private static OutputMethods OutputMethod { get; set; }
    private delegate string Output(List<Sentence> sentences);
@@ -18,10 +19,10 @@ class Program
       ParseArgs(args);
 
       if (InputFiles == null || InputFiles.Length == 0) 
-      {
          InputFiles = Directory.GetFiles(Environment.CurrentDirectory,
                                                               "*.gls");
-      }
+      if (OutputFunction == null)
+         OutputFunction = GetOutputFunction("");
 
       foreach (var inputFile in InputFiles) 
       {
@@ -30,13 +31,23 @@ class Program
 
          string output = "";
          output = OutputFunction(parse);
+         string fileName = Path.GetFileNameWithoutExtension(inputFile);
+
+         if (OutputType == OutputTypes.HtmlFull) 
+         {
+            Directory.CreateDirectory(fileName);
+            File.WriteAllText(fileName + "/index.html", output);
+            File.WriteAllText(fileName + "/style.css", new CssGenerator()
+                                  .Generate(GetAbbreviations(parse)));
+            continue;
+         }
 
          if (OutputMethod == OutputMethods.Console)
             Console.WriteLine(output);
          else if (OutputMethod == OutputMethods.File)
-            File.WriteAllText(Path.GetFileNameWithoutExtension(inputFile) +
-                                        OutputTypeToExtension(OutputType), 
-                                        output);
+            File.WriteAllText(fileName +
+                              OutputTypeToExtension(OutputType), 
+                              output);
       }
    }
 
@@ -72,6 +83,8 @@ class Program
    {
       switch (input.ToLower()) 
       {
+         case "html-full":
+            return new Output(new HtmlGenerator().GenerateFull);
          case "html-spans":
             return new Output(new HtmlGenerator().GenerateSpans);
          case "html-div":
@@ -79,7 +92,7 @@ class Program
          case "json":
             return new Output(new JsonGenerator().Generate);
          default:
-            return new Output(new JsonGenerator().Generate);
+            return new Output(new HtmlGenerator().GenerateFull);
       }
    }
    
@@ -87,6 +100,8 @@ class Program
    {
       switch (input.ToLower()) 
       {
+         case "html-full":
+            return OutputTypes.HtmlFull;
          case "html-spans":
             return OutputTypes.HtmlSpans;
          case "html-div":
@@ -94,7 +109,7 @@ class Program
          case "json":
             return OutputTypes.Json;
          default:
-            return OutputTypes.Json;
+            return OutputTypes.HtmlFull;
       }
    }
 
@@ -122,5 +137,22 @@ class Program
          default:
             return ".txt";
       }
+   }
+
+   private static List<Abbreviation> GetAbbreviations(List<Sentence> sentences) 
+   {
+      var abbreviations = new List<Abbreviation>();
+      foreach (var sentence in sentences) {
+         foreach (var word in sentence.Words) {
+            foreach (var morpheme in word.Morphemes) {
+               var newAbbreviation = new Abbreviation(morpheme.Gloss);
+               if (morpheme.Gloss.All(char.IsUpper) &&
+                  !abbreviations.Contains(newAbbreviation))
+                  abbreviations.Add(newAbbreviation);
+            }
+         }
+      }
+
+      return abbreviations;
    }
 }

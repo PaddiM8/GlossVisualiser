@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 public class HtmlGenerator 
 {
@@ -17,10 +18,18 @@ public class HtmlGenerator
       return sentencesString;
    }
 
+   public string GenerateFull(List<Sentence> sentences) 
+   {
+      string templatesDirectory = AppDomain.CurrentDomain.BaseDirectory + "/Templates/";
+      return File.ReadAllText(templatesDirectory + "top.html") +
+             GenerateDiv(sentences) + 
+             File.ReadAllText(templatesDirectory + "bottom.html");
+   }
+
    public string GenerateDiv(List<Sentence> sentences) 
    {
       string spans = GeneratePrefixedSpans(sentences, "\t");
-      return $"<div class='glossbox'>\n{spans}\n</div>";
+      return $"<div id='glossbox'>\n<span id='tooltip'></span>\n{spans}\n</div>";
    }
 
    private string GenerateSentence(Sentence sentence) 

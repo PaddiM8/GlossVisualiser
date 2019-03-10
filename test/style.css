@@ -1,0 +1,17 @@
+.morpheme {
+  border-bottom: 3px dotted gray;
+  cursor: pointer;
+  transform: scaleX(50%);
+  border-radius: 5px;
+}
+
+#tooltip {
+  position: absolute;
+  background-color: gray;
+  padding: 5px 25px;
+  width: auto;
+  color: white;
+  display: none;
+}
+span[gloss='INE'] border-color: blue;
+span[gloss='PL'] border-color: blue;
