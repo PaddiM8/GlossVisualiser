@@ -1,6 +1,6 @@
 using System;
 
-class Morpheme
+public class Morpheme
 {
    public string Original { get; set; }
    public string Gloss { get; set; }

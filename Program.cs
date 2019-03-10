@@ -10,6 +10,8 @@ class Program
    private static OutputTypes OutputType = OutputTypes.Json;
    private static string[] InputFiles { get; set; }
    private static OutputMethods OutputMethod { get; set; }
+   private delegate string Output(List<Sentence> sentences);
+   private static Output OutputFunction { get; set; }
 
    public static void Main(string[] args)
    {
@@ -27,10 +29,7 @@ class Program
          var parse = new Parser().Parse(tokens);
 
          string output = "";
-         if (OutputType == OutputTypes.HtmlSpans)
-            output = new HtmlGenerator().GenerateSpans(parse);
-         else if (OutputType == OutputTypes.Json)
-            output = new JsonGenerator().Generate(parse);
+         output = OutputFunction(parse);
 
          if (OutputMethod == OutputMethods.Console)
             Console.WriteLine(output);
@@ -40,6 +39,7 @@ class Program
                                         output);
       }
    }
+
 
    private static void ParseArgs(string[] args) 
    {
@@ -51,6 +51,7 @@ class Program
             {
                case "-t":
                   OutputType = GetOutputType(args[i+1]);
+                  OutputFunction = GetOutputFunction(args[i+1]);
                   break;
                case "-o":
                   OutputMethod = GetOutputMethod(args[i+1]);
@@ -67,12 +68,29 @@ class Program
       }
    }
 
+   private static Output GetOutputFunction(string input) 
+   {
+      switch (input.ToLower()) 
+      {
+         case "html-spans":
+            return new Output(new HtmlGenerator().GenerateSpans);
+         case "html-div":
+            return new Output(new HtmlGenerator().GenerateDiv);
+         case "json":
+            return new Output(new JsonGenerator().Generate);
+         default:
+            return new Output(new JsonGenerator().Generate);
+      }
+   }
+   
    private static OutputTypes GetOutputType(string input) 
    {
       switch (input.ToLower()) 
       {
          case "html-spans":
             return OutputTypes.HtmlSpans;
+         case "html-div":
+            return OutputTypes.HtmlDiv;
          case "json":
             return OutputTypes.Json;
          default:

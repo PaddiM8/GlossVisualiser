@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-class Word
+public class Word
 {
    public List<Morpheme> Morphemes { get; set; }
 

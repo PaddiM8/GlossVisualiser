@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-class Sentence
+public class Sentence
 {
    public List<Word> Words { get; set; }
 

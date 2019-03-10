@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Collections.Generic;
 
-class JsonGenerator 
+public class JsonGenerator 
 {
    public string Generate(List<Sentence> sentences) 
    {

@@ -1,15 +1,26 @@
 using System;
 using System.Collections.Generic;
 
-class HtmlGenerator 
+public class HtmlGenerator 
 {
    public string GenerateSpans(List<Sentence> sentences)
    {
+      return GeneratePrefixedSpans(sentences, "");
+   }
+
+   private string GeneratePrefixedSpans(List<Sentence> sentences, string prefix = "") 
+   {
       string sentencesString = "";
       foreach (var sentence in sentences) 
-         sentencesString += GenerateSentence(sentence);
+         sentencesString += prefix + GenerateSentence(sentence);
 
       return sentencesString;
+   }
+
+   public string GenerateDiv(List<Sentence> sentences) 
+   {
+      string spans = GeneratePrefixedSpans(sentences, "\t");
+      return $"<div class='glossbox'>\n{spans}\n</div>";
    }
 
    private string GenerateSentence(Sentence sentence) 
