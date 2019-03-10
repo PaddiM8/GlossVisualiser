@@ -1,0 +1,5 @@
+enum OutputMethods 
+{
+   Console,
+   File
+}

@@ -11,7 +11,7 @@ class Lexer
       {
          for (int w = 0; w < input.Length; w++)
          {
-            if (input[c+w] == ' ')
+            if (input[c+w] == ' ' || input[c+w] == '\n')
             {
                tokens.Add(new Token {
                   TokenType = GetTokenType(input[c]),

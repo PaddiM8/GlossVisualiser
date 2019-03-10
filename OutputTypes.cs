@@ -1,0 +1,5 @@
+enum OutputTypes 
+{
+   HtmlSpans,
+   Json
+}
