@@ -1,6 +1,7 @@
-enum TokenTypes {
-  OpenBracket,
-  ClosedBracket,
-  Word,
-  SentenceDivider
+enum TokenTypes
+{
+   OpenBracket,
+   ClosedBracket,
+   Word,
+   SentenceDivider
 }
