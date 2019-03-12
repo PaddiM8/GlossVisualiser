@@ -57,6 +57,15 @@ class Parser
       foreach (var part in parts)
       {
          string[] labels = part.Split('.');
+
+         foreach (var label in labels) {
+            if (label == label.ToUpper()) {
+               var abbreviation = DatabaseManager.GetAbbreviation(label);
+               if (!Program.Abbreviations.Contains(abbreviation))
+                  Program.Abbreviations.Add(abbreviation);
+            }
+         }
+
          if (gloss)
          {
             morphemes.Add(new Morpheme

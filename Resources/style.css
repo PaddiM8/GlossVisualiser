@@ -1,0 +1,25 @@
+@font-face {
+  font-family: Hack;
+  src: url(Hack.ttf);
+}
+
+#glossbox {
+   font-family: Hack;
+   line-height: 2;
+}
+
+.morpheme {
+  border-bottom: 3px dotted #d3d3d3;
+  cursor: pointer;
+  transform: scaleX(50%);
+}
+
+#tooltip {
+  position: absolute;
+  background-color: #424242;
+  padding: 5px 25px;
+  width: auto;
+  color: white;
+  display: none;
+  font-family: Hack;
+}

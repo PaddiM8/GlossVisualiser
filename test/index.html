@@ -8,27 +8,13 @@
 <body>
 <div id='glossbox'>
 <span id='tooltip'></span>
-	<span class='morpheme' gloss='be' labels='1SG PRS'>on</span>
-<span class='morpheme' gloss='house' labels=''>talo</span><span class='morpheme' gloss='INE' labels=''>ssa</span>
-.	<span class='morpheme' gloss='dog' labels=''>koira</span><span class='morpheme' gloss='PL' labels=''>t</span>
-<span class='morpheme' gloss='run' labels='IMP'>juokse</span><span class='morpheme' gloss='3PL' labels=''>vat</span>
-.
-</div><script>
-      document.getElementById("glossbox").addEventListener('mouseover', function(evt) {
-         if (evt.target.className == "morpheme") {
-            var tooltip = document.getElementById("tooltip");
-            tooltip.style.display = "block";
-            tooltip.innerHTML = evt.target.getAttribute("gloss");
-
-            var evtRect = evt.target.getBoundingClientRect();
-            tooltip.style.left = String(evtRect.left - tooltip.getBoundingClientRect().width / 4) + "px";
-            tooltip.style.top  = String(evtRect.top + 15) + "px";
-         }
-      });
-
-      document.getElementById("glossbox").addEventListener('mouseleave', function(evt) {
-         document.getElementById("tooltip").style.display = 'none';
-      });
-   </script>
+	<span class='morpheme' gloss='be' labels='1SG PRS'>On</span>
+<span class='morpheme' gloss='house' labels=''>talo</span><span class='morpheme' gloss='INE' labels=''>ssa</span>.	<span class='morpheme' gloss='dog' labels=''>Koira</span><span class='morpheme' gloss='PL' labels=''>t</span>
+<span class='morpheme' gloss='run' labels='IMP'>juokse</span><span class='morpheme' gloss='3PL' labels=''>vat</span>.	<span class='morpheme' gloss='DEF' labels='F'>Die</span>
+<span class='morpheme' gloss='post' labels='F'>post</span>
+<span class='morpheme' gloss='be' labels='PRS'>ist</span>
+<span class='morpheme' gloss='from' labels=''>von</span>
+<span class='morpheme' gloss='1SG' labels='DAT'>mir</span>.
+</div><script src="script.js"></script>
 </body>
 </html>

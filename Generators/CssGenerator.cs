@@ -6,7 +6,7 @@ class CssGenerator
 {
    public string Generate(List<Abbreviation> abbreviations) 
    {
-      return File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "/Templates/style.css") +
+      return File.ReadAllText("Resources/style.css") +
              GenerateAbbreviationStyles(abbreviations);
    }
 
@@ -14,7 +14,8 @@ class CssGenerator
    {
       string css = "";
       foreach (var abbreviation in abbreviations) 
-         css += $"span[gloss='{abbreviation.Label}'] border-color: blue;\n";
+         css += $"span[gloss='{abbreviation.Label}'] {{\n\t" + 
+             $"border-color: #{abbreviation.Color}; color: #{abbreviation.Color};\n}}\n\n";
 
       return css;
    }

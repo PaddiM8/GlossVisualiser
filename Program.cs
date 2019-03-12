@@ -8,11 +8,13 @@ using System.Linq;
 
 class Program
 {
-   private static OutputTypes OutputType = OutputTypes.HtmlFull;
-   private static string[] InputFiles { get; set; }
-   private static OutputMethods OutputMethod { get; set; }
+   public static List<Abbreviation> Abbreviations = new List<Abbreviation>();
+
+   private static string[] InputFiles              { get; set; }
    private delegate string Output(List<Sentence> sentences);
-   private static Output OutputFunction { get; set; }
+   private static OutputTypes OutputType = OutputTypes.HtmlFull;
+   private static OutputMethods OutputMethod       { get; set; }
+   private static Output OutputFunction            { get; set; }
 
    public static void Main(string[] args)
    {
@@ -38,7 +40,12 @@ class Program
             Directory.CreateDirectory(fileName);
             File.WriteAllText(fileName + "/index.html", output);
             File.WriteAllText(fileName + "/style.css", new CssGenerator()
-                                  .Generate(GetAbbreviations(parse)));
+                                  .Generate(Abbreviations));
+            File.WriteAllText(fileName + "/script.js", new JSGenerator()
+                                  .Generate(Abbreviations));
+
+            if (!File.Exists(fileName + "/Hack.ttf"))
+               File.Copy("Resources/Hack.ttf", fileName + "/Hack.ttf");
             continue;
          }
 
@@ -137,22 +144,5 @@ class Program
          default:
             return ".txt";
       }
-   }
-
-   private static List<Abbreviation> GetAbbreviations(List<Sentence> sentences) 
-   {
-      var abbreviations = new List<Abbreviation>();
-      foreach (var sentence in sentences) {
-         foreach (var word in sentence.Words) {
-            foreach (var morpheme in word.Morphemes) {
-               var newAbbreviation = new Abbreviation(morpheme.Gloss);
-               if (morpheme.Gloss.All(char.IsUpper) &&
-                  !abbreviations.Contains(newAbbreviation))
-                  abbreviations.Add(newAbbreviation);
-            }
-         }
-      }
-
-      return abbreviations;
    }
 }

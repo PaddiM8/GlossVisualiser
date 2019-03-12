@@ -20,7 +20,7 @@ public class HtmlGenerator
 
    public string GenerateFull(List<Sentence> sentences) 
    {
-      string templatesDirectory = AppDomain.CurrentDomain.BaseDirectory + "/Templates/";
+      string templatesDirectory = "Resources/";
       return File.ReadAllText(templatesDirectory + "top.html") +
              GenerateDiv(sentences) + 
              File.ReadAllText(templatesDirectory + "bottom.html");
@@ -35,26 +35,32 @@ public class HtmlGenerator
    private string GenerateSentence(Sentence sentence) 
    {
       string sentenceString = "";
-      foreach (var word in sentence.Words) 
-         sentenceString += GenerateWord(word);
+      for (int i = 0; i < sentence.Words.Count; i++) {
+         sentenceString += GenerateWord(sentence.Words[i], i == 0);
 
-      return sentenceString + ".";
+         if (i != sentence.Words.Count - 1) sentenceString += "\n";
+         else sentenceString += ".";
+      }
+
+      return sentenceString;
    }
 
-   private string GenerateWord(Word word)
+   private string GenerateWord(Word word, bool firstWord = false)
    {
       string wordString = "";
-      foreach (var morpheme in word.Morphemes) 
-         wordString += GenerateSpan(morpheme);
+      for (int i = 0; i < word.Morphemes.Count; i++) {
+         wordString += GenerateSpan(word.Morphemes[i], firstWord && i == 0);
+      }
 
-      return wordString + "\n";
+      return wordString;
    }
 
-   private string GenerateSpan(Morpheme morpheme) 
+   private string GenerateSpan(Morpheme morpheme, bool firstWord = false) 
    {
       string gloss = morpheme.Gloss;
       string original = morpheme.Original;
       string labels = "labels='" + string.Join(" ", morpheme.Labels) + "'";
+      if (firstWord) original = original.FirstCharToUpper();
 
       return $"<span class='morpheme' gloss='{gloss}' {labels}>{original}</span>";
    }
