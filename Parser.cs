@@ -37,7 +37,7 @@ class Parser
          {
             inGloss = true;
          }
-         else if (token.TokenType == TokenTypes.SentenceDivider)
+         else if (token.TokenType == TokenTypes.ClosedBracket)
          {
             sentences.Add(new Sentence(new List<Word>()));
             currentSentence++;

@@ -11,6 +11,9 @@ class Lexer
       {
          for (int w = 0; w < input.Length; w++)
          {
+            if (c+w == 0 && IsWhitespace(input[c+w])) break;
+            if (IsWhitespace(input[c+w]) && IsWhitespace(input[c+w-1])) break;
+
             if (input[c+w] == ' ' || input[c+w] == '\n')
             {
                tokens.Add(new Token {
@@ -35,6 +38,11 @@ class Lexer
       }
 
       return tokens;
+   }
+
+   private bool IsWhitespace(char c) 
+   {
+      return c == ' ' || c == '\n' || c == '\t';
    }
 
    private TokenTypes GetTokenType(char c)
