@@ -29,7 +29,7 @@ public class HtmlGenerator
    public string GenerateDiv(List<Sentence> sentences) 
    {
       string spans = GeneratePrefixedSpans(sentences, "\t");
-      return $"<div id='glossbox'>\n<span id='tooltip'></span>\n{spans}\n</div>";
+      return $"<div id='glossbox'>\n<span id='tooltip'></span><div id='tooltip-arrow'></div>\n{spans}\n</div>";
    }
 
    private string GenerateSentence(Sentence sentence) 
