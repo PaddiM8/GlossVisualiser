@@ -74,6 +74,12 @@ class Program
                case "-o":
                   OutputMethod = GetOutputMethod(args[i+1]);
                   break;
+               case "-ab":
+               case "--add-abbreviation":
+                  DatabaseManager.AddAbbreviation(args[i+1],
+                        string.Join(" ", args.Skip(3)), args[i+2]);
+                  System.Environment.Exit(1);
+                  break;
                default:
                   continue;
             }
