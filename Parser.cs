@@ -61,7 +61,7 @@ class Parser
          foreach (var label in labels) {
             if (label == label.ToUpper()) {
                var abbreviation = DatabaseManager.GetAbbreviation(label);
-               if (!Program.Abbreviations.Contains(abbreviation))
+               if (!Program.Abbreviations.Any(x => x.Label == label))
                   Program.Abbreviations.Add(abbreviation);
             }
          }
