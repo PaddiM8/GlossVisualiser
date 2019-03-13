@@ -1,5 +1,5 @@
 # GlossVisualiser
-Parses linear gloss and outputs HTML that shows it in a more readable, visual way.  
+Parses interlinear gloss and outputs HTML that shows it in a more readable, visual way.  
 Hover a morpheme to see its meaning and how it affects the sentence grammatically, without needing to know how to read gloss.
 
 ![](https://i.imgur.com/JeeBPur.png)
