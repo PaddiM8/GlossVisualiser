@@ -14,8 +14,9 @@ on talo-ssa { be.1SG.PRS house-INE } koira-t juokse-vat { dog-PL run.IMP-3PL }
 To run the program you need .NET Core installed.  
 Do `dotnet run` to run the program. This will check the current directory for \*.gls files and will convert them to HTML automatically. You can also specify the file name directly after `dotnet run` if you wish to parse a single file.
 
-## Custom abbreviations
-You can easily add new abbreviations to the database by using the `--add-abbreviation` or `-ab` flag.
-`dotnet run -ab [ABBREVIATION] [Color] [Name/Explanation]`
-The abbreviation has to be in capital letters, and the color should be a HEX value without the hash symbol.
-This will permanently add the abbreviation to your local database.
+## Custom abbreviations 
+Adding custom abbreviations is simple. Use the flag `--add-abbreviation` or `-ab` to add an abbreviation to your local abbreviation database.  
+`dotnet run -ab [ABBREVIATION] [Color] [Value/Explanation]`  
+The color must be a HEX string(without the hash symbol).
+**Example:** `dotnet run -ab INE 0F0F0F Inessive case ('in')`
+>>>>>>> be6e7793d6e7d1ea8ce2b98f8366a05f7b8bf52b
