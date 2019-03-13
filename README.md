@@ -19,4 +19,3 @@ Adding custom abbreviations is simple. Use the flag `--add-abbreviation` or `-ab
 `dotnet run -ab [ABBREVIATION] [Color] [Value/Explanation]`  
 The color must be a HEX string(without the hash symbol).
 **Example:** `dotnet run -ab INE 0F0F0F Inessive case ('in')`
->>>>>>> be6e7793d6e7d1ea8ce2b98f8366a05f7b8bf52b
