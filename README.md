@@ -12,7 +12,7 @@ original sentence with morphemes separated { gloss } another sentence { gloss } 
 on talo-ssa { be.1SG.PRS house-INE } koira-t juokse-vat { dog-PL run.IMP-3PL }
 
 ## Running the program
-When you run the binary, it will check the current directory for \*.gls files and convert them to HTML automatically. You can also specify the file name directly after `dotnet run` if you wish to parse a single file.
+When you run the binary, it will check the current directory for \*.gls files and convert them to HTML automatically. You can also specify the file name directly after the command to run the executable, if you wish to parse a single file. This would be done in a terminal/command line.
 
 ## Compiling
 If you choose to compile the program yourself, you will need .NET Core SDK installed. 
