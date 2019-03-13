@@ -12,7 +12,13 @@ original sentence with morphemes separated { gloss } another sentence { gloss } 
 on talo-ssa { be.1SG.PRS house-INE } koira-t juokse-vat { dog-PL run.IMP-3PL }
 
 ## Running the program
-When you run the binary, it will check the current directory for \*.gls files and convert them to HTML automatically. You can also specify the file name directly after the command to run the executable, if you wish to parse a single file. This would be done in a terminal/command line.
+When you run the executable, it will check the current directory for \*.gls files and convert them to HTML automatically. You can also specify the file name directly after the command to run the executable, if you wish to parse a single file. This would be done in a terminal/command line.
+
+**Example:**  
+File: gloss.gls
+File content: on talo-ssa { be.1SG.PRS house-INE }
+To convert: place it in the same directory as the program, run the executable.  
+*or* run the program from a terminal/command line, which also allows you to set additional options and add to/edit the abbreviation database.
 
 ## Compiling
 If you choose to compile the program yourself, you will need .NET Core SDK installed. 
