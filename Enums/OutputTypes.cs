@@ -1,4 +1,4 @@
-enum OutputTypes 
+public enum OutputTypes 
 {
    HtmlFull,
    HtmlSpans,

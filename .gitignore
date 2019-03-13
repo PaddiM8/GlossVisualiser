@@ -5,6 +5,7 @@
 
 test.gls
 test
+publish.sh
 
 # User-specific files
 *.suo

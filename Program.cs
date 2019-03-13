@@ -58,7 +58,6 @@ class Program
       }
    }
 
-
    private static void ParseArgs(string[] args) 
    {
       for (int i = 0; i < args.Length; i++) 
@@ -67,6 +66,11 @@ class Program
          {
             switch (args[i]) 
             {
+               case "-h":
+               case "--help":
+                  ShowHelp();
+                  Environment.Exit(1);
+                  break;
                case "-t":
                   OutputType = GetOutputType(args[i+1]);
                   OutputFunction = GetOutputFunction(args[i+1]);
@@ -78,7 +82,13 @@ class Program
                case "--add-abbreviation":
                   DatabaseManager.AddAbbreviation(args[i+1],
                         string.Join(" ", args.Skip(3)), args[i+2]);
-                  System.Environment.Exit(1);
+                  Environment.Exit(1);
+                  break;
+               case "-eb":
+               case "--edit-abbreviation":
+                  DatabaseManager.EditAbbreviation(args[i+1],
+                        string.Join(" ", args.Skip(3)), args[i+2]);
+                  Environment.Exit(1);
                   break;
                default:
                   continue;
@@ -90,6 +100,16 @@ class Program
 
          InputFiles[InputFiles.Length] = args[i];
       }
+   }
+
+   private static void ShowHelp() 
+   {
+      Console.WriteLine("-=GlossVisualiser Help=-");
+      Console.WriteLine("-h, --help: Show help");
+      Console.WriteLine("-t: Output type (json, html, html-spans, html-div)");
+      Console.WriteLine("-o: Output method (console, file)");
+      Console.WriteLine("-ab, --add-abbreviation: [ABBREVIATION] [Color] [Value/Meaning]");
+      Console.WriteLine("-eb, --edit-abreviation: [ABBREVIATION] [Color] [Value/Meaning]");
    }
 
    private static Output GetOutputFunction(string input) 
@@ -108,8 +128,8 @@ class Program
             return new Output(new HtmlGenerator().GenerateFull);
       }
    }
-   
-   private static OutputTypes GetOutputType(string input) 
+
+   public static OutputTypes GetOutputType(string input) 
    {
       switch (input.ToLower()) 
       {
