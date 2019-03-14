@@ -90,6 +90,10 @@ class Program
                         string.Join(" ", args.Skip(3)), args[i+2]);
                   Environment.Exit(1);
                   break;
+               case "-d":
+               case "--database":
+                  AbbreviationsContext.DatabaseSource = args[i+1];
+                  break;
                default:
                   continue;
             }
@@ -110,6 +114,7 @@ class Program
       Console.WriteLine("-o: Output method (console, file)");
       Console.WriteLine("-ab, --add-abbreviation: [ABBREVIATION] [Color] [Value/Meaning]");
       Console.WriteLine("-eb, --edit-abreviation: [ABBREVIATION] [Color] [Value/Meaning]");
+      Console.WriteLine("-d, --database: SQLite database file location")
    }
 
    private static Output GetOutputFunction(string input) 
