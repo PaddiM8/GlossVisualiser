@@ -26,6 +26,6 @@ Simply do `dotnet run` in a terminal/command line to build and run it.
 
 ## Custom abbreviations 
 Adding custom abbreviations is simple. Use the flag `--add-abbreviation` or `-ab` to add an abbreviation to your local abbreviation database.  
-`dotnet run -ab [ABBREVIATION] [Color] [Value/Explanation]`  
+`-ab [ABBREVIATION] [Color] [Value/Explanation]`  
 The color must be a HEX string(without the hash symbol).
-**Example:** `dotnet run -ab INE 0F0F0F Inessive case ('in')`
+**Example:** `-ab INE 0F0F0F Inessive case ('in')`
