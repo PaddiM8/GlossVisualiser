@@ -10,19 +10,19 @@ class Program
 {
    public static List<Abbreviation> Abbreviations = new List<Abbreviation>();
 
-   private static string[] InputFiles              { get; set; }
+   private static List<String> InputFiles = new List<String>();
    private delegate string Output(List<Sentence> sentences);
    private static OutputTypes OutputType = OutputTypes.HtmlFull;
-   private static OutputMethods OutputMethod       { get; set; }
-   private static Output OutputFunction            { get; set; }
+   private static OutputMethods OutputMethod { get; set; }
+   private static Output OutputFunction      { get; set; }
 
    public static void Main(string[] args)
    {
       ParseArgs(args);
 
-      if (InputFiles == null || InputFiles.Length == 0) 
+      if (InputFiles == null || InputFiles.Count == 0) 
          InputFiles = Directory.GetFiles(Environment.CurrentDirectory,
-                                                              "*.gls");
+                                                              "*.gls").ToList();
       if (OutputFunction == null)
          OutputFunction = GetOutputFunction("");
 
@@ -102,7 +102,7 @@ class Program
             continue;
          }
 
-         InputFiles[InputFiles.Length] = args[i];
+         InputFiles.Add(args[i]);
       }
    }
 
@@ -114,7 +114,7 @@ class Program
       Console.WriteLine("-o: Output method (console, file)");
       Console.WriteLine("-ab, --add-abbreviation: [ABBREVIATION] [Color] [Value/Meaning]");
       Console.WriteLine("-eb, --edit-abreviation: [ABBREVIATION] [Color] [Value/Meaning]");
-      Console.WriteLine("-d, --database: SQLite database file location")
+      Console.WriteLine("-d, --database: SQLite database file location");
    }
 
    private static Output GetOutputFunction(string input) 
