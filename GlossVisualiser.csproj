@@ -9,9 +9,10 @@
   <ItemGroup>
     <PackageReference Include="ILLink.Tasks" Version="0.1.4-preview-981901" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="2.2.3" />
     <PackageReference Include="Microsoft.Packaging.Tools.Trimming" Version="1.1.0-preview1-27119-01" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="1.1.13" />
   </ItemGroup>
 
 </Project>

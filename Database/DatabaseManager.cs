@@ -11,8 +11,9 @@ public static class DatabaseManager
          using (var db = new AbbreviationsContext())
             return db.Abbreviations.Where(a => a.Label == label).Single();
       }
-      catch
+      catch (Exception ex)
       {
+         Console.WriteLine(ex.ToString());
          Console.WriteLine($"Error. Are you sure {label} is in the abbreviation database?");
          System.Environment.Exit(1);
          return null;
