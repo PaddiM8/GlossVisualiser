@@ -1,0 +1,368 @@
+1SG 90EE90 first person singular
+2SG FFFFE0 second person singular
+3SG 32CD32 third person singular
+1PL 87CEEB first person plural
+2PL F4A460 second person plural
+3PL A0522D third person plural
+A EE82EE agent-like argument of canonical transitive verb
+AB 7FFF00 abstract
+ABE FFA07A abessive case (AKA caritive case or privative case: 'without')
+ABL FFE4B5 ablative case ('from')
+ABS 6A5ACD absolutive case
+ACC FF00FF accusative case
+ACCOM FFFFF0 accompanier
+ACT FFE4E1 active voice, actor role (in role and reference grammar)
+ADJ 696969 adjective
+ADE 8B008B adessive case ('at'; more specific than LOC)
+ADM FF69B4 admonitive mood (warning)
+ADV FFEFD5 adverb(ial), adverbial case
+AFF 0000CD affirmative
+AG, AGT FFB6C1 agentive case (cf ACT)
+AGR B8860B agreement
+ALL 7B68EE allative case ('to')
+AL 00FF7F allocutive agreement
+ALLOC 00FF7F allocutive agreement
+AP B22222 antipassive voice
+APPL FFDEAD applicative voice
+ALIEN 708090 alienable possession
+AN DB7093 animate gender (cf R)
+AND 00008B andative ('going towards', cf venitive)
+ANT 9932CC anterior tense (used for PRF in some traditions)
+ANTE B0E0E6 antessive case ('before')
+ANTIC FFD700 anticausative
+ANTIP B22222 antipassive voice
+AOR D2691E aorist (= PFV or PST.PFV)
+APP FFF0F5 apposition
+APL FFDEAD applicative voice
+APPR C0C0C0 apprehensive mood
+APRX FFFF00 approximative
+ART DCDCDC article
+ASP 9ACD32 aspect
+ASS 00BFFF associative case (= COM), assumptive mood, assertive mood
+AT F0FFFF agent trigger (= AV agent voice)
+ATT FFF5EE attenuative
+ATTR 87CEFA attributive
+AUD F5FFFA auditory evidential
+AUG FF8C00 augmentative
+AUX 8FBC8F auxiliary verb
+B FF00FF benefactive (when it is a core argument)
+BE DDA0DD be' verb (a conflation of EXIST and COP)
+BEN 778899 benefactive case ('for')
+C 800080 common gender; complementizer
+CAP E9967A (cap)ability, modal case
+CAUS FFFAFA causative
+ CAUS FFFAFA causative
+CLF AFEEEE classifier
+CPL D2B48C completive aspect
+CTN B0C4DE continuous aspect; continuative aspect
+DECL 7FFFD4 declarative mood
+DEIX F0E68C deixis, deictic
+DESI 008B8B desiderative mood
+DYAD FF6347 dyadic
+EVID 7B68EE evidential
+EXCL 00CED1 exclusive person
+EXPER 9400D3 experiential, eyewitness, = direct evidential
+FEM FAEBD7 feminine gender
+FREQ FFE4C4 frequentative aspect
+IMPREC FFFF00 imprecative mood
+INCEP EEE8AA inchoative aspect, inceptive aspect
+INCHO EEE8AA inchoative aspect, inceptive aspect
+CENT FFFAF0 centric case
+CF FFC0CB counterfactual conditional
+CIRC E6E6FA circumfix
+CIT F5DEB3 citation form
+CL AFEEEE classifier
+CMPD F8F8FF compound
+CNJ 7CFC00 conjunction (= CONJ)
+CNSQ FF4500 consequential mood
+CNTR EEE8AA contrastive
+COL 66CDAA collective number
+COM 6400 comitative case ('together with')
+COMP DA70D6 comparative; complementizer
+COMPL D2B48C completive aspect
+CON 800000 concrete
+CONC CD853F concessive
+COND DAA520 conditional mood
+CONJ FDF5E6 conjunction (= CNJ)
+CONN FF1493 connective particle
+CONT B0C4DE continuous aspect; continuative aspect
+COP C71585 copula
+COR FFF8DC coreference
+CRAS 556B2F crastinal tense ('tomorrow')
+CRS 5F9EA0 current relevance marker (as in the perfect)
+CVB FFA07A converb
+D 98FB98 core dative case
+DAT 20B2AA dative case
+DE 0 different event, change of event (cf DS)
+DEC 7FFFD4 declarative mood
+DEF DC143C definite
+DEI F0E68C deixis, deictic
+DEL 8B4513 delayed imperative (a command to do s.t. later) or delative case
+DEM 8B0000 demonstrative
+DEO 00FFFF deontic mood
+DEP 80 dependent (as in DEP.FUT)
+DER 808000 derivation, derivational
+DES 008B8B desiderative mood
+DEST 6B8E23 destinative aspect
+DET BA55D3 determiner
+DETR FFFFFF detransitive
+DH FA8072 motion downhill, seaward (cf DR)
+DIM A52A2A diminutive
+DIR 0000FF direct evidential (= EXP); directional (= LAT); direct case
+DISJ BC8F8F disjunction
+DIST 4169E1 distal demonstrative
+DISTR 48D1CC distributive case
+DITR CD5C5C ditransitive
+DLM F5F5DC delimited
+DM FF7F50 discourse marker
+DO 2F4F4F direct object
+DR FFDAB9 motion downriver (cf DH)
+DS FFEBCD different-subject (change of subject) marker (cf DE)
+DU FF0000 dual number
+DUB 808080 dubitative mood
+DUR D8BFD8 durative aspect, continuous aspect
+DY FF6347 dyadic
+DYN 00FF00 dynamic aspect
+E D3D3D3 epenthetic morpheme
+-E 00FFFF (used to form various -essive cases)
+ELA 191970 elative case ('out of')
+EMP FAF0E6 emphatic
+EPIS 3CB371 epistemic mood or modality
+ERG F0FFF0 ergative case
+ESS ADD8E6 essive case
+EV 7B68EE evidential
+EVIT 4682B4 evitative case (= aversive case)
+EX 00CED1 exclusive person
+EXCLAM ADFF2F exclamative
+EX.DUR A9A9A9 excessive duration
+EXESS 8080 exessive case
+EXH 8000 exhortative
+EXIST FFA500 existential ('there is')
+EXO 9370DB exocentric case
+EXP 9400D3 experiential, eyewitness, = direct evidential
+EXPL 2E8B57 expletive (dummy / meaningless form)
+F FAEBD7 feminine gender
+FACT 00FA9A factive evidential
+FAM BDB76B familiar register (as the T–V distinction)
+FIN 8A2BE2 finite verb
+FOC FAFAD2 focus
+FORM 228B22 formal register (as the T–V distinction)
+FP 483D8B final particle (joshi)
+FR FFE4C4 frequentative aspect
+FMR 1E90FF former, deceased
+FUT 9966CC future tense
+G E0FFFF gender (G4 = the 4th gender)
+GEN F08080 genitive case
+GER DEB887 gerund
+GNO 4B0082 gnomic (generic) aspect
+GT F0F8FF goal trigger (Austronesian; = GV goal voice)
+HAB 40E0D0 habitual aspect
+HBL 6495ED humble register
+HEST F5F5F5 hesternal tense ('yesterday')
+HIST EE82EE historic(al)
+HOD CD5C5C hodiernal tense ('today')
+HON 1E90FF honorific
+HORT BDB76B hortative
+HSY 7FFFD4 hearsay
+HUM FFE4E1 human
+HYP 9966CC hypothetical mood
+I C71585 inflected
+ID F8F8FF identical (~ NID)
+IDENTIF FFFAFA identifiable
+IDEO 4B0082 ideophone (≈ MIM)
+IGNOR 32CD32 ignorative
+ILL 9400D3 illative case ('into')
+IMM FFFACD immediate
+IMP E9967A imperative mood
+IMPERF DAA520 imperfect (= PST.IPFV)
+IMPR FFFF00 imprecative mood
+IMPRS 00CED1 impersonal verb
+IN A9A9A9 inclusive person
+INAL 2E8B57 inalienable possession
+INAN F0E68C inanimate gender
+INCH EEE8AA inchoative aspect
+IND FFA500 indicative mood
+INDF 800000 indefinite
+INE DCDCDC inessive case ('in')
+INF DDA0DD infinitive
+INFER 708090 inferential mood
+INEL FFEFD5 inelative case ('from within')
+INS 8000 instrumental case
+INT 7B68EE intensifier; interrogative (= Q)
+INTEN 98FB98 intentional
+INTR FF1493 intransitive (covers an intransitive case for the S argument)
+INV FFFFF0 inverse
+IO B0C4DE indirect object
+IPFV F5DEB3 imperfective aspect (= NPFV)
+IRR 5F9EA0 irrealis mood
+IS A0522D indirect speech
+ITER 6495ED iterative aspect
+JUS FFFAF0 jussive mood
+-L FF8C00 (used to form various -lative cases)
+L2 7B68EE second language (code-switching)
+LAT FFE4C4 lative case (= MVMT
+LD F5F5DC locative case + directional
+LK CD853F linking element
+LOC DA70D6 locative case (includes essive case)
+LOG 008B8B logophoric
+M 00FF00 masculine gender
+MAN FF0000 manner
+MID 8B0000 middle voice
+MIM FAFAD2 mimetic (≈ IDEO)
+MIR FF4500 (ad)mirative
+MLT 808000 multiplicative case
+MOD DC143C mood
+MOM B8860B single action verb (not iterative)
+MVT F0FFF0 movement
+N FFA07A neuter gender
+N- B0E0E6 non- (e.g. NSG non-singular
+NEG FFEBCD negation
+NF 87CEFA non-finite (nonfinite verb
+NH F5F5F5 non-human
+NMZ BA55D3 nominalizer/nominalization
+NOM ADD8E6 nominative case
+NS 556B2F non-subject (see oblique case)
+NUM FFD700 numeral
+O 0000FF patient-like argument (object) of canonical transitive verb (= P)
+OBJ FFC0CB object; objective case
+OBL 40E0D0 oblique case
+OBV 00FF7F obviative
+OPT 00FFFF optative mood
+P FFF0F5 patient-like argument of canonical transitive verb (= O)
+PART 9932CC participle (= PTCP
+PAS 8080 passive voice
+PAT 6400 patientive (= UND)
+PA FFFFE0 paucal number
+PEG FFDEAD pegative case (a special case for the giver)
+PER 778899 perlative case ('per'
+PERF F5FFFA perfect (= RET)
+PERS 9370DB personal
+PFV 6B8E23 perfective aspect
+PL 4169E1 plural
+PLU 20B2AA pluractional
+PM FFF8DC phrase marker
+PN ADFF2F pronoun
+PO FF00FF primary object
+POL 0000CD polite register
+POS 80 possessive marker
+POST FFE4B5 postposition
+POSTE 2F4F4F postessive case ('after')
+POSTEL E0FFFF postelative case
+POT 7CFC00 potential mood
+PP AFEEEE past / passive participle
+PPFV A52A2A past perfective
+PPP 4682B4 past passive participle
+PR 191970 proper noun
+PREC FAEBD7 precative mood (requests)
+PRED FFFFFF predicate
+PREP 228B22 preposition
+PRESP FA8072 present participle
+PRET D8BFD8 preterite (= PFV.PST)
+PRF F4A460 perfect (= RET)
+PRIV FF69B4 privative case
+PRS 696969 present tense
+PROB DEB887 probability
+PROG 8FBC8F progressive aspect
+PROH F08080 prohibitive mood ('don't!')
+PROL 483D8B prolative case (= VIA)
+PROP 8B4513 propositive mood
+PROS FFDAB9 prosecutive case ('across'
+PROSP BC8F8F prospective aspect
+PROT 9ACD32 protasis
+PROX 808080 proximal demonstrative; proximate
+PST F0F8FF past tense
+PT 7FFF00 patient trigger
+PTCL DB7093 particle
+PTCP D3D3D3 participle
+PTV FF00FF partitive case ('some of')
+PURP 00BFFF purposive case
+Q 90EE90 question word or particle (= INT)
+QUOT FAF0E6 quotative (quotative case or quotative mood)
+R 00008B rational gender (thinking beings)
+REAL FF6347 realis mood
+REC 8B008B recent past tense
+RECP D2B48C reciprocal voice
+REF FFA07A referential
+REFL FFB6C1 reflexive (reflexive pronoun
+REL 87CEEB relative(izer)
+REM 6A5ACD remote past tense
+REP F0FFFF reported evidential (= HSY); repetitive (cf ITER)
+RES 8A2BE2 resultative; resumptive
+RET C0C0C0 Retrospective (synonym for 'perfect' in some traditions)
+ROOT 3CB371 root
+S D2691E single argument of canonical intransitive verb (cf CIT)
+SBJ FF7F50 subject
+SBJV E6E6FA subjunctive mood
+SE 00FFFF same event (cf SS)
+SEM 66CDAA semelfactive aspect ('once')
+SENS FFF5EE sensory evidential mood (= VIS+AUD)
+SEQ 0 sequential
+SG FDF5E6 singular (but 1.SG = 1s
+SGV 800080 singulative number
+SIM FDF5E6 simultaneous aspect; similative
+SJV D3D3D3 subjunctive mood
+SPEC 228B22 specifier; speculative mood
+SS D2B48C same-subject marker (cf SE)
+STAT 87CEFA stative aspect
+STEM ADFF2F stem
+SUB FFFAFA subject
+SUBR FFA07A subordinator
+SUBE 696969 subessive case ('under')
+SUBL 008B8B sublative case ('onto'
+SUC 9ACD32 successive ('then')
+SUP(L) 808080 superlative (SUPL); supine; supplicative
+SUPE 4169E1 superessive case ('on')
+-T B22222 trigger (used for AT
+TAM 7FFFD4 tense
+TEL 6A5ACD telic aspect (cf PFV)
+TEMP 8A2BE2 temporal case
+TERM FF6347 terminative case
+TNS 5F9EA0 tense
+TOP 32CD32 topic
+TR FFFFE0 transitive verb
+TRANSL 3CB371 translative case (becoming)
+TRI 8B008B trial number
+TRN FFFFF0 trans-numeral (neither SG nor PL)
+TVF FF1493 truth-value focus
+U FF69B4 uninflected
+UH A0522D motion uphill
+UND FF7F50 undergoer role (cf PAT)
+UR 800000 motion upriver (cf UH)
+USIT AFEEEE usitative
+V F0FFF0 verb or verbal
+VBZ 2F4F4F verbalizer
+VD F5F5DC verb
+VEN 1E90FF venitive (coming towards; cf andative)
+VER FFEBCD veridical
+VIA FFF0F5 vialis case
+VIS FF4500 visible
+VI F5FFFA verb
+VN FAF0E6 verbal noun
+VOC FFFAF0 vocative case
+VOL FFE4E1 volitive mood
+VT 0000FF verb
+WH.Q F8F8FF wh- question
+-Z 800080 -(al)izer (e.g. TRZ transitivizer)
+ZO FF00FF zoic gender (animals)
+NDEF 800000 indefinite
+INFR 708090 inferential mood
+INSTR 8000 instrumental case
+NTR FF1493 intransitive (covers an intransitive case for the S argument)
+MASC 00FF00 masculine gender
+MLTP 808000 multiplicative case
+NEUT FFA07A neuter gender
+NOMI BA55D3 nominalizer/nominalization
+OB FFC0CB object;objective case
+PASS 8080 passive voice
+PAU FFFFE0 paucal number
+PLUR 20B2AA pluractional
+PRO ADFF2F pronoun
+POSS 80 possessive marker
+PRT D8BFD8 preterite(=PFV.PST)
+PRES 696969 present tense
+PRSP BC8F8F prospective aspect
+PTC DB7093 particle
+PCP D3D3D3 participle
+RFR FFA07A referential
+TRANS FFFFE0 transitive case
+VB F0FFF0 verb or verbal

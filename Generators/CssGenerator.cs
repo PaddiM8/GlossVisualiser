@@ -4,18 +4,18 @@ using System.IO;
 
 class CssGenerator 
 {
-   public string Generate(List<Abbreviation> abbreviations) 
+   public string Generate()
    {
       return File.ReadAllText("Resources/style.css") +
-             GenerateAbbreviationStyles(abbreviations);
+             GenerateAbbreviationStyles(DictionaryManager.AbbreviationDictionary);
    }
 
-   private string GenerateAbbreviationStyles(List<Abbreviation> abbreviations) 
+   private string GenerateAbbreviationStyles(Dictionary<string, Abbreviation> abbreviations) 
    {
       string css = "";
       foreach (var abbreviation in abbreviations) 
-         css += $"span[gloss='{abbreviation.Label}'] {{\n\t" + 
-             $"border-color: #{abbreviation.Color}; color: #{abbreviation.Color};\n}}\n\n";
+         css += $"span[gloss='{abbreviation.Value.Label}'] {{\n\t" + 
+             $"border-color: #{abbreviation.Value.Color}; color: #{abbreviation.Value.Color};\n}}\n\n";
 
       return css;
    }

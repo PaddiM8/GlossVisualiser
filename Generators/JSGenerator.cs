@@ -4,17 +4,17 @@ using System.Collections.Generic;
 
 class JSGenerator 
 {
-   public string Generate(List<Abbreviation> abbreviations) 
+   public string Generate()
    {
-      return GenerateAbbreviationList(abbreviations) +
+      return GenerateAbbreviationList(DictionaryManager.AbbreviationDictionary) +
              File.ReadAllText("Resources/script.js");
    }
 
-   private string GenerateAbbreviationList(List<Abbreviation> abbreviations) 
+   private string GenerateAbbreviationList(Dictionary<string, Abbreviation> abbreviations) 
    {
       string javascript = "var abbreviations = {};\n";
       foreach (var abbreviation in abbreviations) 
-         javascript += $"abbreviations[\"{abbreviation.Label}\"] = \"{abbreviation.Value}\";\n";
+         javascript += $"abbreviations[\"{abbreviation.Value.Label}\"] = \"{abbreviation.Value.Value}\";\n";
 
       return javascript;
    }

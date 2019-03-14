@@ -37,12 +37,13 @@ class Program
 
          if (OutputType == OutputTypes.HtmlFull) 
          {
+            new DictionaryManager().Load(DictionaryManager.DictionaryLocation);
             Directory.CreateDirectory(fileName);
             File.WriteAllText(fileName + "/index.html", output);
             File.WriteAllText(fileName + "/style.css", new CssGenerator()
-                                  .Generate(Abbreviations));
+                                  .Generate());
             File.WriteAllText(fileName + "/script.js", new JSGenerator()
-                                  .Generate(Abbreviations));
+                                  .Generate());
 
             if (!File.Exists(fileName + "/Hack.ttf"))
                File.Copy("Resources/Hack.ttf", fileName + "/Hack.ttf");
@@ -80,19 +81,35 @@ class Program
                   break;
                case "-ab":
                case "--add-abbreviation":
-                  DatabaseManager.AddAbbreviation(args[i+1],
-                        string.Join(" ", args.Skip(3)), args[i+2]);
+                  var abbreviation = new Abbreviation(
+                        args[i+1], 
+                        string.Join(" ", args.Skip(3)),
+                        args[i+2]
+                  );
+
+                  DictionaryManager.AbbreviationDictionary.Add(args[i+1],
+                                                           abbreviation);
                   Environment.Exit(1);
                   break;
                case "-eb":
                case "--edit-abbreviation":
-                  DatabaseManager.EditAbbreviation(args[i+1],
-                        string.Join(" ", args.Skip(3)), args[i+2]);
+                  var editedAbbreviation = new Abbreviation(
+                        args[i+1], 
+                        string.Join(" ", args.Skip(3)),
+                        args[i+2]
+                  );
+
+                  DictionaryManager.AbbreviationDictionary[args[i+1]]
+                                                      = editedAbbreviation;
                   Environment.Exit(1);
                   break;
                case "-d":
-               case "--database":
-                  AbbreviationsContext.DatabaseSource = args[i+1];
+               case "--dictionary":
+                  DictionaryManager.DictionaryLocation = args[i+1];
+                  break;
+               case "--generate-dictionary":
+               case "-gd":
+                  new DictionaryManager().CreateFromFile(args[i+1]);
                   break;
                default:
                   continue;
@@ -114,7 +131,7 @@ class Program
       Console.WriteLine("-o: Output method (console, file)");
       Console.WriteLine("-ab, --add-abbreviation: [ABBREVIATION] [Color] [Value/Meaning]");
       Console.WriteLine("-eb, --edit-abreviation: [ABBREVIATION] [Color] [Value/Meaning]");
-      Console.WriteLine("-d, --database: SQLite database file location");
+      Console.WriteLine("-d, --dictionary: Abbreviation-dictionary file location");
    }
 
    private static Output GetOutputFunction(string input) 
