@@ -17,8 +17,8 @@ document.getElementById("glossbox").addEventListener('mouseover', function(evt) 
       tooltip.innerHTML = tooltipText;
 
       var evtRect = evt.target.getBoundingClientRect();
-      var left = evtRect.left - tooltip.getBoundingClientRect().width / 4;
-      var top = evtRect.top + 38;
+      var left = evtRect.left + window.scrollX - tooltip.getBoundingClientRect().width / 4;
+      var top = evtRect.top + window.scrollY + 38;
       var arrow = document.getElementById("tooltip-arrow");
       var arrowHeight = 14;
       var arrowWidth = 16;
