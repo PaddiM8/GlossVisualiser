@@ -1,58 +1,33 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 public class HtmlGenerator 
 {
-   public string GenerateSpans(List<Sentence> sentences)
-   {
-      return GeneratePrefixedSpans(sentences, "");
-   }
-
-   private string GeneratePrefixedSpans(List<Sentence> sentences, string prefix = "") 
-   {
-      string sentencesString = "";
-      foreach (var sentence in sentences) 
-         sentencesString += prefix + GenerateSentence(sentence);
-
-      return sentencesString;
-   }
+   private static StringBuilder stringBuild = new StringBuilder();
 
    public string GenerateFull(List<Sentence> sentences) 
    {
+      foreach (var sentence in sentences)
+         GenerateSentence(sentence);
+
       string templatesDirectory = "Resources/";
       return File.ReadAllText(templatesDirectory + "top.html") +
-             GenerateDiv(sentences) + 
+             stringBuild.ToString() + 
              File.ReadAllText(templatesDirectory + "bottom.html");
    }
 
-   public string GenerateDiv(List<Sentence> sentences) 
+   private void GenerateSentence(Sentence sentence)
    {
-      string spans = GeneratePrefixedSpans(sentences, "\t");
-      return $"<div id='glossbox'>\n<span id='tooltip'></span><div id='tooltip-arrow'></div>\n{spans}\n</div>";
-   }
+      for (int s = 0; s < sentence.Words.Count; s++) {
+         var word = sentence.Words[s];
+         for (int w = 0; w < word.Morphemes.Count; w++)
+            stringBuild.Append(GenerateSpan(word.Morphemes[w], s == 0 && w == 0));
 
-   private string GenerateSentence(Sentence sentence) 
-   {
-      string sentenceString = "";
-      for (int i = 0; i < sentence.Words.Count; i++) {
-         sentenceString += GenerateWord(sentence.Words[i], i == 0);
-
-         if (i != sentence.Words.Count - 1) sentenceString += "\n";
-         else sentenceString += ".";
+         if (s != sentence.Words.Count - 1) stringBuild.Append("\n");
+         else stringBuild.Append(".");
       }
-
-      return sentenceString;
-   }
-
-   private string GenerateWord(Word word, bool firstWord = false)
-   {
-      string wordString = "";
-      for (int i = 0; i < word.Morphemes.Count; i++) {
-         wordString += GenerateSpan(word.Morphemes[i], firstWord && i == 0);
-      }
-
-      return wordString;
    }
 
    private string GenerateSpan(Morpheme morpheme, bool firstWord = false) 

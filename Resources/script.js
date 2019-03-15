@@ -10,8 +10,10 @@ document.getElementById("glossbox").addEventListener('mouseover', function(evt) 
       var labels = evt.target.getAttribute("labels").split(' ');
       var i;
       for (i in labels) {
-         if (labels[i] != "")
+         if (labels[i] != "" && labels[i].toUpperCase() == labels[i])
             tooltipText += "<br />" + abbreviations[labels[i]];
+         else if (labels[i] != "")
+            tooltipText += " " + labels[i];
       }
 
       tooltip.innerHTML = tooltipText;

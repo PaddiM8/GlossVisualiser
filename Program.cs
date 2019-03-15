@@ -31,7 +31,6 @@ class Program
       {
          List<Token> tokens = new Lexer().Lex(File.ReadAllText(inputFile));
          var parse = new Parser().Parse(tokens);
-
          string output = "";
          output = OutputFunction(parse);
          string fileName = Path.GetFileNameWithoutExtension(inputFile);
@@ -128,7 +127,7 @@ class Program
    {
       Console.WriteLine("-=GlossVisualiser Help=-");
       Console.WriteLine("-h, --help: Show help");
-      Console.WriteLine("-t: Output type (json, html, html-spans, html-div)");
+      Console.WriteLine("-t: Output type (json, html)");
       Console.WriteLine("-o: Output method (console, file)");
       Console.WriteLine("-ab, --add-abbreviation: [ABBREVIATION] [Color] [Value/Meaning]");
       Console.WriteLine("-eb, --edit-abreviation: [ABBREVIATION] [Color] [Value/Meaning]");
@@ -139,12 +138,8 @@ class Program
    {
       switch (input.ToLower()) 
       {
-         case "html-full":
+         case "html":
             return new Output(new HtmlGenerator().GenerateFull);
-         case "html-spans":
-            return new Output(new HtmlGenerator().GenerateSpans);
-         case "html-div":
-            return new Output(new HtmlGenerator().GenerateDiv);
          case "json":
             return new Output(new JsonGenerator().Generate);
          default:
@@ -156,12 +151,8 @@ class Program
    {
       switch (input.ToLower()) 
       {
-         case "html-full":
+         case "html":
             return OutputTypes.HtmlFull;
-         case "html-spans":
-            return OutputTypes.HtmlSpans;
-         case "html-div":
-            return OutputTypes.HtmlDiv;
          case "json":
             return OutputTypes.Json;
          default:
@@ -184,10 +175,9 @@ class Program
 
    private static string OutputTypeToExtension(OutputTypes outputType) 
    {
+      // This will eventually have a few more.
       switch (outputType) 
       {
-         case OutputTypes.HtmlSpans:
-            return ".html";
          case OutputTypes.Json:
             return ".json";
          default:
