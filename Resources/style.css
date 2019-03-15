@@ -12,6 +12,8 @@
   border-bottom: 3px dotted #d3d3d3;
   cursor: pointer;
   transform: scaleX(50%);
+  padding-right: -3px;
+  margin-left: 3px;
 }
 
 #tooltip {
