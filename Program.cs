@@ -14,19 +14,23 @@ class Program
    private static List<String> InputFiles = new List<String>();
    private delegate string Output(List<Sentence> sentences);
    private static OutputTypes OutputType = OutputTypes.HtmlFull;
-   private static OutputMethods OutputMethod { get; set; }
+   private static OutputMethods OutputMethod;
    private static Output OutputFunction      { get; set; }
 
    public static void Main(string[] args)
    {
+      // Parse input arguments and change the global options
       ParseArgs(args);
 
+      // If no input file(s) specified, load all .gls files in the current directory
       if (InputFiles == null || InputFiles.Count == 0) 
          InputFiles = Directory.GetFiles(Environment.CurrentDirectory,
                                                               "*.gls").ToList();
+      // If no output type is specified, grab the default one
       if (OutputFunction == null)
          OutputFunction = GetOutputFunction("");
 
+      // Loop through each input file that is specified and parse it
       foreach (var inputFile in InputFiles) 
       {
          List<Token> tokens = new Lexer().Lex(File.ReadAllText(inputFile));
@@ -37,15 +41,15 @@ class Program
 
          if (OutputType == OutputTypes.HtmlFull) 
          {
-            new DictionaryManager().Load(DictionaryManager.DictionaryLocation);
+            new DictionaryManager().Load(DictionaryManager.DictionaryLocation); // Load dictionary into memory
             Directory.CreateDirectory(fileName);
-            File.WriteAllText(fileName + "/index.html", output);
-            File.WriteAllText(fileName + "/style.css", new CssGenerator()
+            File.WriteAllText(fileName + "/index.html", output);          // Generate HTML
+            File.WriteAllText(fileName + "/style.css", new CssGenerator() // Generate CSS
                                   .Generate());
-            File.WriteAllText(fileName + "/script.js", new JSGenerator()
+            File.WriteAllText(fileName + "/script.js", new JSGenerator()  // Generate JavaScript
                                   .Generate());
 
-            if (!File.Exists(fileName + "/Hack.ttf"))
+            if (!File.Exists(fileName + "/Hack.ttf")) // Add font, if not already in the directory
                File.Copy("Resources/Hack.ttf", fileName + "/Hack.ttf");
             continue;
          }
@@ -59,8 +63,12 @@ class Program
       }
    }
 
+   ///<summary>
+   ///Parse input arguments and update the global option variables 
+   ///</summary>
    private static void ParseArgs(string[] args) 
    {
+      // Loop through each entry
       for (int i = 0; i < args.Length; i++) 
       {
          if (args[i][0] == '-') 
@@ -89,18 +97,23 @@ class Program
 
                   DictionaryManager.AbbreviationDictionary.Add(args[i+1],
                                                            abbreviation);
+                  new DictionaryManager().Save(DictionaryManager
+                                              .DictionaryLocation);
                   Environment.Exit(1);
                   break;
                case "-eb":
                case "--edit-abbreviation":
                   var editedAbbreviation = new Abbreviation(
-                        args[i+1], 
+                        args[i+1],
                         string.Join(" ", args.Skip(3)),
                         args[i+2]
                   );
 
                   DictionaryManager.AbbreviationDictionary[args[i+1]]
                                                       = editedAbbreviation;
+                  Console.WriteLine(editedAbbreviation.Color);
+                  new DictionaryManager().Save(DictionaryManager
+                                              .DictionaryLocation);
                   Environment.Exit(1);
                   break;
                case "-d":
@@ -123,6 +136,9 @@ class Program
       }
    }
 
+   ///<summary>
+   ///Show program help in console
+   ///</summary>
    private static void ShowHelp() 
    {
       Console.WriteLine("-=GlossVisualiser Help=-");
@@ -134,7 +150,10 @@ class Program
       Console.WriteLine("-d, --dictionary: Abbreviation-dictionary file location");
    }
 
-   private static Output GetOutputFunction(string input) 
+   ///<summary>
+   ///Get which output function is specified in argument
+   ///</summary>
+   private static Output GetOutputFunction(string input)  // TODO: Reduce code duplication
    {
       switch (input.ToLower()) 
       {
@@ -147,6 +166,9 @@ class Program
       }
    }
 
+   ///<summary>
+   ///Get which output type is specified in argument
+   ///</summary>
    public static OutputTypes GetOutputType(string input) 
    {
       switch (input.ToLower()) 
@@ -160,6 +182,9 @@ class Program
       }
    }
 
+   ///<summary>
+   ///Get which output method is specified in argument
+   ///</summary>
    private static OutputMethods GetOutputMethod(string input) 
    {
       switch (input.ToLower()) 
@@ -173,6 +198,9 @@ class Program
       }
    }
 
+   ///<summary>
+   ///Retrieve file extension needed for output type
+   ///</summary>
    private static string OutputTypeToExtension(OutputTypes outputType) 
    {
       // This will eventually have a few more.

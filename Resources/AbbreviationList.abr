@@ -9,13 +9,13 @@ AB 7FFF00 abstract
 ABE FFA07A abessive case (AKA caritive case or privative case: 'without')
 ABL FFE4B5 ablative case ('from')
 ABS 6A5ACD absolutive case
-ACC FF00FF accusative case
+ACC EF6C00 accusative case
 ACCOM FFFFF0 accompanier
 ACT FFE4E1 active voice, actor role (in role and reference grammar)
 ADJ 696969 adjective
 ADE 8B008B adessive case ('at'; more specific than LOC)
 ADM FF69B4 admonitive mood (warning)
-ADV FFEFD5 adverb(ial), adverbial case
+ADV C2185B adverb(ial), adverbial case
 AFF 0000CD affirmative
 AG, AGT FFB6C1 agentive case (cf ACT)
 AGR B8860B agreement
@@ -205,7 +205,7 @@ LD F5F5DC locative case + directional
 LK CD853F linking element
 LOC DA70D6 locative case (includes essive case)
 LOG 008B8B logophoric
-M 00FF00 masculine gender
+M 0D47A1 masculine gender
 MAN FF0000 manner
 MID 8B0000 middle voice
 MIM FAFAD2 mimetic (≈ IDEO)
@@ -214,7 +214,7 @@ MLT 808000 multiplicative case
 MOD DC143C mood
 MOM B8860B single action verb (not iterative)
 MVT F0FFF0 movement
-N FFA07A neuter gender
+N 2E7D32 neuter gender
 N- B0E0E6 non- (e.g. NSG non-singular
 NEG FFEBCD negation
 NF 87CEFA non-finite (nonfinite verb
@@ -270,7 +270,7 @@ PROS FFDAB9 prosecutive case ('across'
 PROSP BC8F8F prospective aspect
 PROT 9ACD32 protasis
 PROX 808080 proximal demonstrative; proximate
-PST F0F8FF past tense
+PST 2196F3 past tense
 PT 7FFF00 patient trigger
 PTCL DB7093 particle
 PTCP D3D3D3 participle

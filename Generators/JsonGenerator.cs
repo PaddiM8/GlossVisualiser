@@ -5,6 +5,10 @@ using System.Collections.Generic;
 
 public class JsonGenerator 
 {
+
+   ///<summary>
+   ///Generate JSON from the sentences
+   ///</summary>
    public string Generate(List<Sentence> sentences) 
    {
       var contractResolver = new DefaultContractResolver 

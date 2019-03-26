@@ -5,8 +5,11 @@ using System.Text;
 
 public class HtmlGenerator 
 {
-   private static StringBuilder stringBuild = new StringBuilder();
+   private static StringBuilder stringBuild = new StringBuilder(); // String builder to append everything to
 
+   ///<summary>
+   ///Generate full HTML
+   ///</summary>
    public string GenerateFull(List<Sentence> sentences) 
    {
       foreach (var sentence in sentences)
@@ -18,18 +21,25 @@ public class HtmlGenerator
              File.ReadAllText(templatesDirectory + "bottom.html");
    }
 
+   ///<summary>
+   ///Generate HTML from a single sentence
+   ///</summary>
    private void GenerateSentence(Sentence sentence)
    {
       for (int s = 0; s < sentence.Words.Count; s++) {
          var word = sentence.Words[s];
          for (int w = 0; w < word.Morphemes.Count; w++)
-            stringBuild.Append(GenerateSpan(word.Morphemes[w], s == 0 && w == 0));
+            stringBuild.Append(GenerateSpan(word.Morphemes[w],
+                     s == 0 && w == 0));
 
          if (s != sentence.Words.Count - 1) stringBuild.Append("\n");
          else stringBuild.Append(".");
       }
    }
 
+   ///<summary>
+   ///Generate a single span (morpheme)
+   ///</summary>
    private string GenerateSpan(Morpheme morpheme, bool firstWord = false) 
    {
       string gloss = morpheme.Gloss;
