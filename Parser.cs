@@ -67,8 +67,8 @@ class Parser
          foreach (var label in labels) {
             if (label == label.ToUpper()) {
                if (!Program.Abbreviations.Any(x => x.Label == label)) { // If not already existing, add the label to the label list so it will be colored
-                  var abbreviation = new Abbreviation(label, "0000", "value");
-                  Program.Abbreviations.Add(abbreviation);
+                  Program.Abbreviations.Add(DictionaryManager
+                        .AbbreviationDictionary[label]);
                }
             }
          }

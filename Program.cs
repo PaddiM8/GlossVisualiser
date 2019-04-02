@@ -34,6 +34,7 @@ class Program
       foreach (var inputFile in InputFiles) 
       {
          List<Token> tokens = new Lexer().Lex(File.ReadAllText(inputFile));
+         new DictionaryManager().Load(DictionaryManager.DictionaryLocation); // Load dictionary into memory
          var parse = new Parser().Parse(tokens);
          string output = "";
          output = OutputFunction(parse);
@@ -41,7 +42,6 @@ class Program
 
          if (OutputType == OutputTypes.HtmlFull) 
          {
-            new DictionaryManager().Load(DictionaryManager.DictionaryLocation); // Load dictionary into memory
             Directory.CreateDirectory(fileName);
             File.WriteAllText(fileName + "/index.html", output);          // Generate HTML
             File.WriteAllText(fileName + "/style.css", new CssGenerator() // Generate CSS

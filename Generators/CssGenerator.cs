@@ -21,10 +21,10 @@ class CssGenerator
    private string GenerateAbbreviationStyles(Dictionary<string, Abbreviation> abbreviations) 
    {
       string css = "";
-      foreach (var abbreviation in abbreviations) 
+      foreach (var abbreviation in abbreviations) {
          css += $"span[gloss='{abbreviation.Value.Label}'], span[labels^='{abbreviation.Value.Label}'] {{\n\t" + 
-             $"border-color: #{abbreviation.Value.Color}; color: #{abbreviation.Value.Color};\n}}\n\n";
-
+                $"border-color: #{abbreviation.Value.Color}; color: #{abbreviation.Value.Color};\n}}\n\n";
+      }
       return css;
    }
 }
